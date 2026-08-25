@@ -1,7 +1,7 @@
 const ads = {
 
   "ad-place1": {
-    image: "images/crew-atlanta-300.png",
+    image: "images/ad-place1.png",
     url: "https://portal.bomageorgia.org/exhibits/exhibit-hall-booths/?HallId=66422f6b-8784-4f74-a9a6-2b3fa43b527a",
     alt: "Advertisement 1"
   },

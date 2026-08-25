@@ -1,15 +1,33 @@
 const ads = {
 
-  "homepage-square": {
-    image: "images/square.jpg",
+  "ad-place1": {
+    image: "images/ad-place1.png",
     url: "https://www.example.com",
-    alt: "Homepage Sponsor"
+    alt: "Advertisement 1"
   },
 
-  "leaderboard": {
-    image: "images/leaderboard.jpg",
+  "ad-place2": {
+    image: "images/ad-place2.png",
     url: "https://www.example.com",
-    alt: "Leaderboard Sponsor"
+    alt: "Advertisement 2"
+  },
+
+  "ad-place3": {
+    image: "images/ad-place3.png",
+    url: "https://www.example.com",
+    alt: "Advertisement 3"
+  },
+
+  "ad-place4": {
+    image: "images/ad-place4.png",
+    url: "https://www.example.com",
+    alt: "Advertisement 4"
+  },
+
+  "ad-place-leader": {
+    image: "images/ad-place_leader.png",
+    url: "https://www.example.com",
+    alt: "Leaderboard Advertisement"
   }
 
 };

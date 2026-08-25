@@ -13,6 +13,7 @@ body {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  background: transparent;
 }
 
 a {
@@ -26,6 +27,7 @@ img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  border: 0;
 }
 
 </style>
@@ -42,31 +44,57 @@ img {
 
 </a>
 
-<script src="ads.js"></script>
-
 <script>
 
-const params = new URLSearchParams(window.location.search);
+//
+// Load the current ads.js file without using
+// an older browser-cached version.
+//
 
-const zone = params.get("zone");
+const script = document.createElement("script");
 
-const ad = ads[zone];
+script.src = "ads.js?v=" + Date.now();
 
-if (ad) {
+script.onload = function () {
 
-  const image = document.getElementById("ad-image");
-  const link = document.getElementById("ad-link");
+  //
+  // Determine which ad zone was requested.
+  //
 
-  image.src = ad.image + "?v=" + Date.now();
-  image.alt = ad.alt;
+  const params = new URLSearchParams(window.location.search);
 
-  link.href = ad.url;
+  const zone = params.get("zone");
 
-} else {
+  const ad = ads[zone];
 
-  document.body.innerHTML = "";
+  //
+  // If the zone exists, display its advertisement.
+  //
 
-}
+  if (ad) {
+
+    const image = document.getElementById("ad-image");
+    const link = document.getElementById("ad-link");
+
+    image.src = ad.image + "?v=" + Date.now();
+    image.alt = ad.alt;
+
+    link.href = ad.url;
+
+  } else {
+
+    //
+    // If an invalid zone was requested,
+    // display nothing.
+    //
+
+    document.body.innerHTML = "";
+
+  }
+
+};
+
+document.head.appendChild(script);
 
 </script>
 

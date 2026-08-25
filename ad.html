@@ -1,1 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
 
+<meta charset="UTF-8">
+
+<style>
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<a id="ad-link"
+   target="_blank"
+   rel="noopener sponsored">
+
+  <img id="ad-image">
+
+</a>
+
+<script src="ads.js"></script>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+
+const zone = params.get("zone");
+
+const ad = ads[zone];
+
+if (ad) {
+
+  const image = document.getElementById("ad-image");
+  const link = document.getElementById("ad-link");
+
+  image.src = ad.image + "?v=" + Date.now();
+  image.alt = ad.alt;
+
+  link.href = ad.url;
+
+} else {
+
+  document.body.innerHTML = "";
+
+}
+
+</script>
+
+</body>
+</html>
